@@ -1,10 +1,10 @@
 import { FC, FormEvent, useState } from 'react'
-import { useLoginUser } from '../../store/authApi'
+import { authApi } from '../../store/authApi'
 
 const Login: FC = () => {
   const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
-  const [loginUser, { isLoading, error }] = useLoginUser()
+  const [loginUser, { isLoading, error }] = authApi.useLoginUserMutation()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()

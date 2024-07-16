@@ -1,11 +1,11 @@
 import { FC, FormEvent, useState } from 'react'
-import { useRegisterUser } from '../../store/authApi'
+import { authApi } from '../../store/authApi.ts'
 
 const Register: FC = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [registerUser, { isLoading, error }] = useRegisterUser()
+  const [registerUser, { isLoading, error }] = authApi.useRegisterUserMutation()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
